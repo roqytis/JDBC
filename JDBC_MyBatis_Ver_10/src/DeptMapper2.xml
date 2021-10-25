@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dept.DeptMapper2">
+
+	<select id="selectDynamicDeptno" parameterType="hashmap" resultType="Dept">
+		 select deptno, dname, loc
+		 from dept
+	 <if test="deptno != null">
+	 		where deptno= #{deptno}  <!-- hashmap의 키를 이용한 값을 가져오기 -->
+	 </if>
+	</select>
+
+	<select id="selectByHashMap" parameterType="hashmap" resultType="Dept">
+		select deptno, dname, loc 
+		from dept
+		where deptno between #{key1} and #{key2}
+	</select>
+	<!-- HashMap으로 결과 얻기 -->
+	<select id="selectByDeptHashmap" resultType="hashmap" parameterType="int">
+		select deptno, dname, loc 
+		from dept
+		where deptno= #{deptno}		
+	</select>
+	
+	
+	<select id="deptRecordCount" resultType="int">
+		select count(*) from dept
+	</select>
+	<select id="selectAll" resultType="Dept">
+		select deptno, dname, loc
+		from dept
+		order by 1
+	</select>
+</mapper>
