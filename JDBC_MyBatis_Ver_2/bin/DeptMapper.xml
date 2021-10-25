@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+  <select id="selectAll" resultType="com.dto.Dept"><!-- 결과를 Dept의 List형태로 -->
+    select deptno, dname, loc from dept
+  </select>
+  <select id="selectByDeptno" resultType="com.dto.Dept">
+    select deptno, dname, loc from dept where deptno=10
+  </select>
+  <insert id="deptInsert" parameterType="com.dto.Dept">
+  		insert into dept (deptno, dname, loc) values
+  		(#{deptno}, #{dname}, #{loc})
+  </insert>
+</mapper>
