@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <!--  db  4가지 정보 설정-->
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="scott"/>
+        <property name="password" value="tiger"/>
+      </dataSource>
+      <!-- 4가지 정보 끝  -->
+    </environment>
+  </environments>
+  <!-- mapper  지정  -->
+  <mappers>
+    <mapper resource="DeptMapper.xml"/>
+   </mappers>
+  <!--  -->
+</configuration>
