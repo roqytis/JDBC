@@ -1,0 +1,19 @@
+1. configuration.xml에 typeAlias등록됨
+
+<configuration>
+<!-- jdbc.properties파일 등록 -->
+<properties resource="jdbc.properties"/>
+<!--  typealias 등록 -->
+<typeAliases>
+	<typeAlias type="com.dto.Dept" alias="Dept"></typeAlias><!-- Alias추가  -->
+</typeAliases>
+
+2. Mapper2.xml에  hashmap 결과 추가
+<!-- HashMap으로 결과 얻기 -->
+	<select id="selectByDeptHashmap" resultType="hashmap" parameterType="int">
+		select deptno, dname, loc 
+		from dept
+		where deptno= #{deptno}		
+	</select>
+3.Mapper3.xml추가
+configuration.xml에 추가 필요
